@@ -41,3 +41,5 @@ names(Extracted_data) <- gsub("gravity", "Gravity", names(Extracted_data))
 #5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 Mean_Data <- Extracted_data %>% group_by(Subject_id,Activity) %>% summarise_all(funs(mean))
+
+write.table(MeanData, "Data.txt", row.names = FALSE)
