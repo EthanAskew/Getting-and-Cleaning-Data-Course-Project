@@ -1,14 +1,15 @@
 library(data.table,plyr,dplyr) 
 URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(URL, destfile = "C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData.zip")
-featurenames <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/features.txt")
-X_test <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/test/X_test.txt",col.names = featurenames$V2)
-Y_test <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/test/Y_test.txt", col.names = "Activity")
-subject_test <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/test/subject_test.txt",col.names = "Subject_id")
-Y_train <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/train/Y_train.txt",col.names = "Activity")
-X_train <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/train/X_train.txt",col.names = featurenames$V2)
-subject_train <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/train/subject_train.txt",col.names = "Subject_id")
-Activity_labels <- fread("C:/Users/ethan/OneDrive/Documents/R/Coursera/Data/C3ProjectData/UCI HAR Dataset/activity_labels.txt", col.names = c("Index","Activity"))
+download.file(URL, destfile = "C3ProjectData.zip")
+unzip("C3ProjectData.zip")
+featurenames <- fread("UCI HAR Dataset/features.txt")
+X_test <- fread("UCI HAR Dataset/test/X_test.txt",col.names = featurenames$V2)
+Y_test <- fread("UCI HAR Dataset/test/Y_test.txt", col.names = "Activity")
+subject_test <- fread("UCI HAR Dataset/test/subject_test.txt",col.names = "Subject_id")
+Y_train <- fread("UCI HAR Dataset/train/Y_train.txt",col.names = "Activity")
+X_train <- fread("UCI HAR Dataset/train/X_train.txt",col.names = featurenames$V2)
+subject_train <- fread("UCI HAR Dataset/train/subject_train.txt",col.names = "Subject_id")
+Activity_labels <- fread("UCI HAR Dataset/activity_labels.txt", col.names = c("Index","Activity"))
 
 #1 Merging test and train data sets  
 
